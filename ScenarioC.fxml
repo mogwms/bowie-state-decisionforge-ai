@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Text layoutX="14.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[THE TITLE OF THE APPLICATION GOES HERE]" underline="true">
+               <font>
+                  <Font size="23.0" />
+               </font>
+            </Text>
+            <Label fx:id="pricelbl" layoutX="223.0" layoutY="68.0" text="Price:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="chooseLaptopcom" layoutX="14.0" layoutY="65.0" prefHeight="26.0" prefWidth="178.0" promptText="Choose Laptop Model:" >
+               <items>
+                  <FXCollections fx:factory="observableArrayList">
+                     <String fx:holder="Laptop 1"/>
+                     <String fx:holder2="Laptop 2"/>
+                     <String fx:holder3="Laptop 3"/>
+                     <String fx:holder4="Laptop 4"/>
+                     <String fx:holder5="Laptop 5"/>
+                  </FXCollections>
+               </items>
+            </ComboBox>
+            <Label fx:id="priceInsertlbl" layoutX="280.0" layoutY="68.0" prefHeight="20.0" prefWidth="72.0" style="-fx-background-color: gray;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="pricelbl" layoutX="224.0" layoutY="108.0" text="RAM:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="ramInsertlbl" layoutX="280.0" layoutY="108.0" prefHeight="20.0" prefWidth="72.0" style="-fx-background-color: gray;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="weightlbl" layoutX="209.0" layoutY="146.0" text="Weight:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="weightInsertlbl" layoutX="280.0" layoutY="146.0" prefHeight="20.0" prefWidth="72.0" style="-fx-background-color: gray;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="warrantyChk" layoutX="14.0" layoutY="109.0" mnemonicParsing="false" text="Will the Laptop Have Warranty?" />
+            <Label fx:id="warrantylbl" layoutX="196.0" layoutY="186.0" text="Warranty:">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <Label fx:id="warrantyInsertlbl" layoutX="280.0" layoutY="186.0" prefHeight="20.0" prefWidth="72.0" style="-fx-background-color: gray;">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <GridPane fx:id="rankingGrd" gridLinesVisible="true" layoutX="14.0" layoutY="227.0" prefHeight="158.0" prefWidth="270.0" style="-fx-background-color: gray;">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
