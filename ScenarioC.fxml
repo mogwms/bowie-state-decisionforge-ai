@@ -12,63 +12,90 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="915.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScenarioCController">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="915.0" style="-fx-background-color: lavender;" type="AnchorPane" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="Titlelbl" layoutX="14.0" layoutY="14.0" prefHeight="46.0" prefWidth="293.0" style="-fx-background-color: sky;" text="Find Your Laptop!">
+      <Label fx:id="expressionTreelbl2" layoutX="26.0" layoutY="443.0" prefHeight="32.0" prefWidth="128.0" style="-fx-background-color: mediumslateblue;" textFill="WHITE">
          <font>
-            <Font size="31.0" />
+            <Font name="Rockwell Condensed" size="22.0" />
          </font>
       </Label>
-      <ComboBox fx:id="LaptopCom" layoutX="14.0" layoutY="70.0" prefHeight="26.0" prefWidth="178.0" promptText="Choose Laptop Model:">
-
-
-      </ComboBox>
-      <CheckBox fx:id="warrantyChk" layoutX="14.0" layoutY="113.0" mnemonicParsing="false" text="Will the Laptop Have Warranty?">
+      <Label fx:id="expressionTreelbl12" layoutX="326.0" layoutY="443.0" prefHeight="32.0" prefWidth="128.0" style="-fx-background-color: mediumslateblue;" textFill="WHITE">
          <font>
-            <Font size="13.0" />
+            <Font name="Rockwell Condensed" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="expressionTreelbl111" layoutX="633.0" layoutY="443.0" prefHeight="32.0" prefWidth="128.0" style="-fx-background-color: mediumslateblue;" textFill="WHITE">
+         <font>
+            <Font name="Rockwell Condensed" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="LaptopRankinglbl2" layoutX="27.0" layoutY="212.0" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: mediumslateblue;" textFill="WHITE">
+         <font>
+            <Font name="Rockwell Condensed" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="LaptopRankinglbl11" layoutX="534.0" layoutY="212.0" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: mediumslateblue;" textFill="WHITE">
+         <font>
+            <Font name="Rockwell Condensed" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="24.0" layoutY="24.0" prefHeight="50.0" prefWidth="278.0" style="-fx-background-color: mediumslateblue;" textFill="WHITE">
+         <font>
+            <Font name="Rockwell Condensed" size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="Titlelbl" layoutX="14.0" layoutY="14.0" prefHeight="50.0" prefWidth="278.0" style="-fx-background-color: darkblue;" text="Find Your Laptop!" textFill="WHITE">
+         <font>
+            <Font name="Rockwell Condensed" size="40.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="LaptopCom" layoutX="14.0" layoutY="92.0" prefHeight="26.0" prefWidth="187.0" promptText="Choose Laptop Model:" />
+      <CheckBox fx:id="warrantyChk" layoutX="14.0" layoutY="135.0" mnemonicParsing="false" text="Will the Laptop Have Warranty?">
+         <font>
+            <Font name="Verdana" size="17.0" />
          </font>
       </CheckBox>
-      <Label fx:id="Pricelbl" layoutX="258.0" layoutY="73.0" text="Price: ">
+      <Label fx:id="Pricelbl" layoutX="398.0" layoutY="15.0" text="Price: ">
          <font>
-            <Font size="14.0" />
+            <Font name="Verdana" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="Ramlbl" layoutX="258.0" layoutY="113.0" text="RAM: ">
+      <Label fx:id="Ramlbl" layoutX="401.0" layoutY="55.0" text="RAM: ">
          <font>
-            <Font size="14.0" />
+            <Font name="Verdana" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="Weightlbl" layoutX="243.0" layoutY="153.0" text="Weight: ">
+      <Label fx:id="Weightlbl" layoutX="379.0" layoutY="96.0" text="Weight: ">
          <font>
-            <Font size="14.0" />
+            <Font name="Verdana" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="Warrantylbl" layoutX="233.0" layoutY="193.0" text="Warranty: " visible="false">
+      <Label fx:id="Warrantylbl" layoutX="361.0" layoutY="134.0" text="Warranty: ">
          <font>
-            <Font size="14.0" />
+            <Font name="Verdana" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="Lpricelbl" layoutX="300.0" layoutY="75.0" prefHeight="20.0" prefWidth="64.0" text="..." textAlignment="CENTER">
+      <Label fx:id="Lpricelbl" layoutX="460.0" layoutY="12.0" prefHeight="26.0" prefWidth="88.0" text="..." textAlignment="CENTER">
          <font>
-            <Font size="14.0" />
+            <Font name="Verdana" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="Lramlbl" layoutX="300.0" layoutY="113.0" prefHeight="20.0" prefWidth="64.0" text="..." textAlignment="CENTER">
+      <Label fx:id="Lramlbl" layoutX="460.0" layoutY="51.0" prefHeight="26.0" prefWidth="88.0" text="..." textAlignment="CENTER">
          <font>
-            <Font size="14.0" />
+            <Font name="Verdana" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="Lweightbl" layoutX="300.0" layoutY="153.0" prefHeight="20.0" prefWidth="64.0" text="..." textAlignment="CENTER">
+      <Label fx:id="Lweightbl" layoutX="460.0" layoutY="92.0" prefHeight="26.0" prefWidth="88.0" text="..." textAlignment="CENTER">
          <font>
-            <Font size="14.0" />
+            <Font name="Verdana" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="Lwarrantylbl" layoutX="300.0" layoutY="193.0" prefHeight="20.0" prefWidth="64.0" text="..." textAlignment="CENTER" visible="false">
+      <Label fx:id="Lwarrantylbl" layoutX="460.0" layoutY="131.0" prefHeight="26.0" prefWidth="88.0" text="..." textAlignment="CENTER">
          <font>
-            <Font size="14.0" />
+            <Font name="Verdana" size="17.0" />
          </font>
       </Label>
-      <GridPane fx:id="rankingGrid" gridLinesVisible="true" layoutX="16.0" layoutY="249.0" prefHeight="171.0" prefWidth="494.0">
+      <GridPane fx:id="rankingGrid" gridLinesVisible="true" layoutX="16.0" layoutY="249.0" prefHeight="171.0" prefWidth="494.0" style="-fx-border-color: darkblue;">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -80,7 +107,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
-      <TableView fx:id="truthTable" layoutX="523.0" layoutY="249.0" prefHeight="171.0" prefWidth="374.0">
+      <TableView fx:id="truthTable" layoutX="523.0" layoutY="249.0" prefHeight="171.0" prefWidth="374.0" style="-fx-border-color: darkblue;">
         <columns>
           <TableColumn fx:id="BCol" prefWidth="75.0" text="B" />
           <TableColumn fx:id="MCol" prefWidth="75.0" text="M" />
@@ -89,33 +116,33 @@
             <TableColumn fx:id="OutputCol" prefWidth="75.0" text="Output" />
         </columns>
       </TableView>
-      <TreeView fx:id="expresstionTreeview" layoutX="16.0" layoutY="464.0" prefHeight="255.0" prefWidth="278.0" style="-fx-background-color: pink;" />
-      <TreeView fx:id="descisionTreeview" layoutX="318.0" layoutY="464.0" prefHeight="255.0" prefWidth="278.0" style="-fx-background-color: red;" />
-      <TreeView fx:id="adjacencyTreeview" layoutX="623.0" layoutY="464.0" prefHeight="255.0" prefWidth="278.0" style="-fx-background-color: blue;" />
-      <Label fx:id="LaptopRankinglbl" layoutX="16.0" layoutY="223.0" prefHeight="20.0" prefWidth="64.0" text="Ranking:">
+      <TreeView fx:id="expresstionTreeview" layoutX="16.0" layoutY="484.0" prefHeight="255.0" prefWidth="278.0" style="-fx-border-color: darkblue;" />
+      <TreeView fx:id="descisionTreeview" layoutX="318.0" layoutY="484.0" prefHeight="255.0" prefWidth="278.0" style="-fx-border-color: darkblue;" />
+      <TreeView fx:id="adjacencyTreeview" layoutX="623.0" layoutY="484.0" prefHeight="255.0" prefWidth="278.0" style="-fx-border-color: darkblue;" />
+      <Label fx:id="LaptopRankinglbl" layoutX="17.0" layoutY="202.0" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: darkblue;" text="Ranking:" textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font name="Rockwell Condensed" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="LaptopRankinglbl1" layoutX="523.0" layoutY="223.0" prefHeight="20.0" prefWidth="97.0" text="Truth Table: ">
+      <Label fx:id="LaptopRankinglbl1" layoutX="524.0" layoutY="202.0" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: darkblue;" text="Truth Table: " textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font name="Rockwell Condensed" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="expressionTreelbl" layoutX="16.0" layoutY="433.0" prefHeight="20.0" prefWidth="113.0" text="Expression Tree:">
+      <Label fx:id="expressionTreelbl" layoutX="16.0" layoutY="433.0" prefHeight="32.0" prefWidth="128.0" style="-fx-background-color: darkblue;" text="Expression Tree:" textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font name="Rockwell Condensed" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="expressionTreelbl1" layoutX="316.0" layoutY="433.0" prefHeight="20.0" prefWidth="113.0" text="Decision Tree:">
+      <Label fx:id="expressionTreelbl1" layoutX="316.0" layoutY="433.0" prefHeight="32.0" prefWidth="128.0" style="-fx-background-color: darkblue;" text="Decision Tree:" textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font name="Rockwell Condensed" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="expressionTreelbl11" layoutX="623.0" layoutY="433.0" prefHeight="20.0" prefWidth="113.0" text="Adjacency TList: ">
+      <Label fx:id="expressionTreelbl11" layoutX="623.0" layoutY="433.0" prefHeight="32.0" prefWidth="128.0" style="-fx-background-color: darkblue;" text="Adjacency TList: " textFill="WHITE">
          <font>
-            <Font size="14.0" />
+            <Font name="Rockwell Condensed" size="22.0" />
          </font>
       </Label>
    </children>
-</AnchorPane>
+</fx:root>
