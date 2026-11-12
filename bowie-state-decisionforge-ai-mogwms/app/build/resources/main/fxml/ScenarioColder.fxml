@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TreeView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<!-- STEP 4 CHANGE: fx:controller is intentionally omitted.
+     ScenarioCController loads this FXML and calls loader.setController(this). -->
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="915.0" style="-fx-background-color: lavender;" type="AnchorPane" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="expressionTreelbl2" layoutX="26.0" layoutY="443.0" prefHeight="32.0" prefWidth="128.0" style="-fx-background-color: mediumslateblue;" textFill="WHITE">
+         <font>
+            <Font name="Rockwell Condensed" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="expressionTreelbl12" layoutX="326.0" layoutY="443.0" prefHeight="32.0" prefWidth="128.0" style="-fx-background-color: mediumslateblue;" textFill="WHITE">
+         <font>
+            <Font name="Rockwell Condensed" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="expressionTreelbl111" layoutX="633.0" layoutY="443.0" prefHeight="32.0" prefWidth="128.0" style="-fx-background-color: mediumslateblue;" textFill="WHITE">
+         <font>
+            <Font name="Rockwell Condensed" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="LaptopRankinglbl2" layoutX="27.0" layoutY="212.0" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: mediumslateblue;" textFill="WHITE">
+         <font>
+            <Font name="Rockwell Condensed" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="LaptopRankinglbl11" layoutX="778.0" layoutY="207.0" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: mediumslateblue;" textFill="WHITE">
+         <font>
+            <Font name="Rockwell Condensed" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="616.0" layoutY="31.0" prefHeight="50.0" prefWidth="278.0" style="-fx-background-color: mediumslateblue;" textFill="WHITE">
+         <font>
+            <Font name="Rockwell Condensed" size="40.0" />
+         </font>
+      </Label>
+      <Label fx:id="Titlelbl" layoutX="606.0" layoutY="21.0" prefHeight="50.0" prefWidth="278.0" style="-fx-background-color: darkblue;" text="Find Your Laptop!" textFill="WHITE">
+         <font>
+            <Font name="Rockwell Condensed" size="40.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="LaptopCom" layoutX="26.0" layoutY="18.0" onAction="#ChooseLaptopModel" prefHeight="26.0" prefWidth="187.0" promptText="Choose Laptop Model:" />
+      <CheckBox fx:id="warrantyChk" layoutX="28.0" layoutY="155.0" mnemonicParsing="false" text="Will the Laptop Have Warranty?">
+         <font>
+            <Font name="Verdana" size="17.0" />
+         </font>
+      </CheckBox>
+      <Label fx:id="Pricelbl" layoutX="398.0" layoutY="15.0" text="Price: ">
+         <font>
+            <Font name="Verdana" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="Ramlbl" layoutX="401.0" layoutY="55.0" text="RAM: ">
+         <font>
+            <Font name="Verdana" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="Weightlbl" layoutX="379.0" layoutY="96.0" text="Weight: ">
+         <font>
+            <Font name="Verdana" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="Warrantylbl" layoutX="361.0" layoutY="134.0" text="Warranty: ">
+         <font>
+            <Font name="Verdana" size="17.0" />
+         </font>
+      </Label>
+      <Label fx:id="priceInsertlbl" layoutX="460.0" layoutY="12.0" prefHeight="26.0" prefWidth="88.0" text="..." textAlignment="CENTER">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="ramInsertlbl" layoutX="460.0" layoutY="51.0" prefHeight="26.0" prefWidth="88.0" text="..." textAlignment="CENTER">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="weightInsertlbl" layoutX="460.0" layoutY="92.0" prefHeight="26.0" prefWidth="88.0" text="..." textAlignment="CENTER">
+         <font>
+            <Font name="Verdana" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="warrantyInsertlbl" layoutX="460.0" layoutY="131.0" prefHeight="26.0" prefWidth="88.0" text="..." textAlignment="CENTER">
+         <font>
+            <Font name="Verdana" size="17.0" />
+         </font>
+      </Label>
+      <!-- STEP 4 CHANGE: Reuse this existing GridPane for the four ranking-priority
+           CheckBoxes (inserted by ScenarioCController.initialize()) and the ranked
+           result table (inserted after filtering and scoring). -->
+      <GridPane fx:id="rankingGrid" gridLinesVisible="true" layoutX="16.0" layoutY="249.0" prefHeight="171.0" prefWidth="494.0" style="-fx-border-color: darkblue;">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+      <TableView fx:id="truthTable" layoutX="523.0" layoutY="249.0" prefHeight="171.0" prefWidth="374.0" style="-fx-border-color: darkblue;">
+        <columns>
+          <TableColumn fx:id="BCol" prefWidth="75.0" text="B" />
+          <TableColumn fx:id="MCol" prefWidth="75.0" text="M" />
+            <TableColumn fx:id="LCol" prefWidth="75.0" text="L" />
+            <TableColumn fx:id="WCol" prefWidth="75.0" text="W" />
+            <TableColumn fx:id="OutputCol" prefWidth="75.0" text="Output" />
+        </columns>
+      </TableView>
+      <TreeView fx:id="expresstionTreeview" layoutX="16.0" layoutY="484.0" prefHeight="255.0" prefWidth="278.0" style="-fx-border-color: darkblue;" />
+      <TreeView fx:id="descisionTreeview" layoutX="318.0" layoutY="484.0" prefHeight="255.0" prefWidth="278.0" style="-fx-border-color: darkblue;" />
+      <TreeView fx:id="adjacencyTreeview" layoutX="623.0" layoutY="484.0" prefHeight="255.0" prefWidth="278.0" style="-fx-border-color: darkblue;" />
+      <Label fx:id="LaptopRankinglbl" layoutX="17.0" layoutY="202.0" prefHeight="26.0" prefWidth="79.0" style="-fx-background-color: darkblue;" text="Ranking:" textFill="WHITE">
+         <font>
+            <Font name="Rockwell Condensed" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="LaptopRankinglbl1" layoutX="768.0" layoutY="197.0" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: darkblue;" text="Truth Table: " textFill="WHITE">
+         <font>
+            <Font name="Rockwell Condensed" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="expressionTreelbl" layoutX="16.0" layoutY="433.0" prefHeight="32.0" prefWidth="128.0" style="-fx-background-color: darkblue;" text="Expression Tree:" textFill="WHITE">
+         <font>
+            <Font name="Rockwell Condensed" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="expressionTreelbl1" layoutX="316.0" layoutY="433.0" prefHeight="32.0" prefWidth="128.0" style="-fx-background-color: darkblue;" text="Decision Tree:" textFill="WHITE">
+         <font>
+            <Font name="Rockwell Condensed" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="expressionTreelbl11" layoutX="623.0" layoutY="433.0" prefHeight="32.0" prefWidth="128.0" style="-fx-background-color: darkblue;" text="Adjacency TList: " textFill="WHITE">
+         <font>
+            <Font name="Rockwell Condensed" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="MaximumWeightLabel" alignment="CENTER_RIGHT" layoutX="577.0" layoutY="106.0" nodeOrientation="RIGHT_TO_LEFT">
+         <font>
+            <Font name="Verdana" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="MaxPriceField" layoutX="28.0" layoutY="51.0" prefWidth="166.0" promptText="Maximum Laptop Price" />
+      <TextField fx:id="MinRAMField" layoutX="28.0" layoutY="83.0" prefWidth="166.0" promptText="Minimum RAM" />
+      <TextField fx:id="MaxWeightField" layoutX="28.0" layoutY="115.0" prefWidth="166.0" promptText="Maximum Laptop Weight" />
+      <Button fx:id="startButton" layoutX="365.0" layoutY="167.0" mnemonicParsing="false" onAction="#OnStartButtonPress" prefHeight="50.0" prefWidth="175.0" text="START">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Button>
+      <!-- STEP 4 CHANGE: Existing error label is reused for invalid input, missing
+           ranking priorities, and cases where no laptop passes the filters. -->
+      <Label fx:id="errorMessageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="308.0" layoutY="223.0" prefHeight="17.0" prefWidth="303.0" text="Error! Please Enter _______" textAlignment="CENTER" textFill="RED" visible="false">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</fx:root>
