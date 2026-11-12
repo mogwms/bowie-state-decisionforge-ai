@@ -1,36 +1,54 @@
 package bowie.state.decisionforge.ai;
 
 import java.io.IOException;
+import java.util.List;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 
 public class ScenarioCController extends AnchorPane {
+    LaptopCatalog catalog = new LaptopCatalog();
+    List<Laptop> laptops = catalog.getLaptops();
+    private Laptop selectedLaptop;
 
     @FXML
-    private ComboBox<?> chooseLaptopcom;
+    private ComboBox<String> LaptopCom;
 
     @FXML
     public void initialize() {
-        // chooseLaptopcom.getItems().addAll("CodeBook Pro 14", "DevLite Air 13",
-        // "WorkStation X15", "CampusBook 14", "UltraDev14");
+        laptops.forEach(laptop -> LaptopCom.getItems().add(laptop.name()));
     }
 
-    public ScenarioCController() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ScenarioC.fxml"));
-        loader.setRoot(this);
-        loader.setController(this); // Acts as its own controller
-
-        try {
-            loader.load();
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to load ScenarioC.fxml", e);
+    @FXML
+    private void ChooseLaptopModel(ActionEvent event) {
+        String selected = LaptopCom.getValue();
+        for (Laptop laptop : laptops) {
+            if (laptop.name() == selected) {
+                selectedLaptop = laptop;
+                priceInsertlbl.setText("$" + Double.toString(laptop.price()));
+                ramInsertlbl.setText(Integer.toString(laptop.RAM()));
+                weightInsertlbl.setText(Double.toString(laptop.weight()));
+                
+                if (laptop.hasWarranty()) {
+                    warrantyInsertlbl.setText("Yes");
+                } else {
+                     warrantyInsertlbl.setText("No");
+                }
+            }
         }
+    }
+
+    @FXML
+    private void OnStartButtonPress() {
+
     }
 
     @FXML
@@ -60,4 +78,30 @@ public class ScenarioCController extends AnchorPane {
     @FXML
     private Label weightlbl;
 
+    @FXML 
+    private TextField MaxPriceField;
+
+    @FXML 
+    private TextField MaxWeightField;
+
+    @FXML 
+    private TextField MinRAMField;
+
+    @FXML 
+    private Button startButton;
+
+    @FXML
+    private Label errorMessageLabel;
+
+    public ScenarioCController() {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/ScenarioC.fxml"));
+        loader.setRoot(this);
+        loader.setController(this); // Acts as its own controller
+
+        try {
+            loader.load();
+        } catch (IOException e) {
+            throw new RuntimeException("Failed to load ScenarioC.fxml", e);
+        }
+    }
 }

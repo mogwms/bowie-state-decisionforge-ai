@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.TreeView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -34,23 +36,23 @@
             <Font name="Rockwell Condensed" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="LaptopRankinglbl11" layoutX="534.0" layoutY="212.0" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: mediumslateblue;" textFill="WHITE">
+      <Label fx:id="LaptopRankinglbl11" layoutX="778.0" layoutY="207.0" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: mediumslateblue;" textFill="WHITE">
          <font>
             <Font name="Rockwell Condensed" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="24.0" layoutY="24.0" prefHeight="50.0" prefWidth="278.0" style="-fx-background-color: mediumslateblue;" textFill="WHITE">
+      <Label layoutX="616.0" layoutY="31.0" prefHeight="50.0" prefWidth="278.0" style="-fx-background-color: mediumslateblue;" textFill="WHITE">
          <font>
             <Font name="Rockwell Condensed" size="40.0" />
          </font>
       </Label>
-      <Label fx:id="Titlelbl" layoutX="14.0" layoutY="14.0" prefHeight="50.0" prefWidth="278.0" style="-fx-background-color: darkblue;" text="Find Your Laptop!" textFill="WHITE">
+      <Label fx:id="Titlelbl" layoutX="606.0" layoutY="21.0" prefHeight="50.0" prefWidth="278.0" style="-fx-background-color: darkblue;" text="Find Your Laptop!" textFill="WHITE">
          <font>
             <Font name="Rockwell Condensed" size="40.0" />
          </font>
       </Label>
-      <ComboBox fx:id="LaptopCom" layoutX="14.0" layoutY="92.0" prefHeight="26.0" prefWidth="187.0" promptText="Choose Laptop Model:" />
-      <CheckBox fx:id="warrantyChk" layoutX="14.0" layoutY="135.0" mnemonicParsing="false" text="Will the Laptop Have Warranty?">
+      <ComboBox fx:id="LaptopCom" layoutX="26.0" layoutY="18.0" onAction="#ChooseLaptopModel" prefHeight="26.0" prefWidth="187.0" promptText="Choose Laptop Model:" />
+      <CheckBox fx:id="warrantyChk" layoutX="28.0" layoutY="155.0" mnemonicParsing="false" text="Will the Laptop Have Warranty?">
          <font>
             <Font name="Verdana" size="17.0" />
          </font>
@@ -75,22 +77,22 @@
             <Font name="Verdana" size="17.0" />
          </font>
       </Label>
-      <Label fx:id="Lpricelbl" layoutX="460.0" layoutY="12.0" prefHeight="26.0" prefWidth="88.0" text="..." textAlignment="CENTER">
+      <Label fx:id="priceInsertlbl" layoutX="460.0" layoutY="12.0" prefHeight="26.0" prefWidth="88.0" text="..." textAlignment="CENTER">
          <font>
             <Font name="Verdana" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="Lramlbl" layoutX="460.0" layoutY="51.0" prefHeight="26.0" prefWidth="88.0" text="..." textAlignment="CENTER">
+      <Label fx:id="ramInsertlbl" layoutX="460.0" layoutY="51.0" prefHeight="26.0" prefWidth="88.0" text="..." textAlignment="CENTER">
          <font>
             <Font name="Verdana" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="Lweightbl" layoutX="460.0" layoutY="92.0" prefHeight="26.0" prefWidth="88.0" text="..." textAlignment="CENTER">
+      <Label fx:id="weightInsertlbl" layoutX="460.0" layoutY="92.0" prefHeight="26.0" prefWidth="88.0" text="..." textAlignment="CENTER">
          <font>
             <Font name="Verdana" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="Lwarrantylbl" layoutX="460.0" layoutY="131.0" prefHeight="26.0" prefWidth="88.0" text="..." textAlignment="CENTER">
+      <Label fx:id="warrantyInsertlbl" layoutX="460.0" layoutY="131.0" prefHeight="26.0" prefWidth="88.0" text="..." textAlignment="CENTER">
          <font>
             <Font name="Verdana" size="17.0" />
          </font>
@@ -124,7 +126,7 @@
             <Font name="Rockwell Condensed" size="22.0" />
          </font>
       </Label>
-      <Label fx:id="LaptopRankinglbl1" layoutX="524.0" layoutY="202.0" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: darkblue;" text="Truth Table: " textFill="WHITE">
+      <Label fx:id="LaptopRankinglbl1" layoutX="768.0" layoutY="197.0" prefHeight="26.0" prefWidth="105.0" style="-fx-background-color: darkblue;" text="Truth Table: " textFill="WHITE">
          <font>
             <Font name="Rockwell Condensed" size="22.0" />
          </font>
@@ -142,6 +144,24 @@
       <Label fx:id="expressionTreelbl11" layoutX="623.0" layoutY="433.0" prefHeight="32.0" prefWidth="128.0" style="-fx-background-color: darkblue;" text="Adjacency TList: " textFill="WHITE">
          <font>
             <Font name="Rockwell Condensed" size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="MaximumWeightLabel" alignment="CENTER_RIGHT" layoutX="577.0" layoutY="106.0" nodeOrientation="RIGHT_TO_LEFT">
+         <font>
+            <Font name="Verdana" size="17.0" />
+         </font>
+      </Label>
+      <TextField fx:id="MaxPriceField" layoutX="28.0" layoutY="51.0" prefWidth="166.0" promptText="Maximum Laptop Price" />
+      <TextField fx:id="MinRAMField" layoutX="28.0" layoutY="83.0" prefWidth="166.0" promptText="Minimum RAM" />
+      <TextField fx:id="MaxWeightField" layoutX="28.0" layoutY="115.0" prefWidth="166.0" promptText="Maximum Laptop Weight" />
+      <Button fx:id="startButton" layoutX="365.0" layoutY="167.0" mnemonicParsing="false" onAction="#OnStartButtonPress" prefHeight="50.0" prefWidth="175.0" text="START">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Button>
+      <Label fx:id="errorMessageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="308.0" layoutY="223.0" prefHeight="17.0" prefWidth="303.0" text="Error! Please Enter _______" textAlignment="CENTER" textFill="RED" visible="false">
+         <font>
+            <Font name="System Bold" size="14.0" />
          </font>
       </Label>
    </children>
