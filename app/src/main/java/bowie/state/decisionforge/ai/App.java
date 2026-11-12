@@ -3,12 +3,27 @@
  */
 package bowie.state.decisionforge.ai;
 
-public class App {
-    public String getGreeting() {
-        return "Hello World!";
+import java.io.IOException;
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class App extends Application {
+    @Override
+    public void start(Stage stage) throws IOException {
+        ScenarioCController root = new ScenarioCController();
+
+        // 2. Create the Scene and attach it to the Stage
+        Scene scene = new Scene(root);
+        stage.setTitle("LaptopWise");
+        stage.setScene(scene);
+        stage.show();
     }
 
     public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+        launch(args);
     }
 }
