@@ -1,8 +1,10 @@
-# Ignore Gradle project-specific cache directory
 .gradle
+**/build/
+!**/src/**/build/
 
-# Ignore Gradle build output directory
-build
+gradle-app.setting
 
-# Ignore Kotlin plugin data
-.kotlin
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+
+.gradletasknamecache
