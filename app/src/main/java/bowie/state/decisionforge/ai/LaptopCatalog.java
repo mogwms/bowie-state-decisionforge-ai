@@ -14,6 +14,5 @@ public class LaptopCatalog {
         return availableLaptops;
     }
     LaptopCatalog() {
-        
     }
 }
