@@ -4,9 +4,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.IdentityHashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +20,8 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
@@ -55,7 +62,16 @@ public class ScenarioCController extends AnchorPane {
     @FXML private TextField MinRAMField;
     @FXML private Button startButton;
     @FXML private Label errorMessageLabel;
+    @FXML private TableView<LaptopCell> truthTable;
+    @FXML private TableColumn<LaptopCell, String> LaptopCol;
+    @FXML private TableColumn<LaptopCell, String> BCol;
+    @FXML private TableColumn<LaptopCell, String> MCol;
+    @FXML private TableColumn<LaptopCell, String> LCol;
+    @FXML private TableColumn<LaptopCell, String> WCol;
+    @FXML private TableColumn<LaptopCell, String> OutputCol;
+    @FXML private TreeView<String> expresstionTreeview;
     @FXML private TreeView<String> descisionTreeview;
+    @FXML private TreeView<String> adjacencyTreeview;
 
     @FXML
     public void initialize() {
@@ -87,6 +103,30 @@ public class ScenarioCController extends AnchorPane {
 
         errorMessageLabel.setText("");
         errorMessageLabel.setVisible(false);
+
+        LaptopCol.setCellValueFactory(cellData ->
+            new SimpleStringProperty(cellData.getValue().getLaptop().name()));
+        BCol.setCellValueFactory(cellData ->
+            new SimpleStringProperty(
+                Boolean.toString(cellData.getValue().getPriceQualifies())));
+        MCol.setCellValueFactory(cellData ->
+            new SimpleStringProperty(
+                Boolean.toString(cellData.getValue().getRamQualifies())));
+        LCol.setCellValueFactory(cellData ->
+            new SimpleStringProperty(
+                Boolean.toString(cellData.getValue().getWeightQualifies())));
+        WCol.setCellValueFactory(cellData ->
+            new SimpleStringProperty(
+                Boolean.toString(cellData.getValue().getWarrantyQualifies())));
+        OutputCol.setCellValueFactory(cellData ->
+            new SimpleStringProperty(
+                Boolean.toString(cellData.getValue().getOutput())));
+
+        TreeItem<String> expressionRoot = new TreeItem<>(
+            "Expression Tree - press START to evaluate laptops");
+        expressionRoot.setExpanded(true);
+        expresstionTreeview.setRoot(expressionRoot);
+        populateAdjacencyTreeView();
     }
 
     @FXML
@@ -139,6 +179,7 @@ public class ScenarioCController extends AnchorPane {
         DecisionTree decisionTree = new DecisionTree(
             selectedLaptop, maxPrice, minRAM, maxWeight, warrantyChk.isSelected());
         showDecisionTree(decisionTree.getPath());
+        updateTruthTable(maxPrice, minRAM, maxWeight);
 
         // At least one ranking priority must be selected.
         List<CheckBox> priorities = new ArrayList<>();
@@ -219,6 +260,106 @@ public class ScenarioCController extends AnchorPane {
 
         descisionTreeview.setRoot(root);
         root.setExpanded(true);
+    }
+
+    private void updateTruthTable(
+        double maxPrice, int minRAM, double maxWeight) {
+
+        truthTable.getItems().clear();
+        expresstionTreeview.setRoot(
+            new TreeItem<>("No current evaluation - press START"));
+
+        Map<Laptop, List<Boolean>> qualifiers = new LinkedHashMap<>();
+
+        for (Laptop laptop : laptops) {
+            boolean priceQualifies = laptop.price() <= maxPrice;
+            boolean ramQualifies = laptop.RAM() >= minRAM;
+            boolean weightQualifies = laptop.weight() <= maxWeight;
+            boolean warrantyQualifies = laptop.hasWarranty();
+            boolean output = priceQualifies
+                && ramQualifies
+                && weightQualifies
+                && (!warrantyChk.isSelected() || warrantyQualifies);
+
+            List<Boolean> values = new ArrayList<>();
+            values.add(priceQualifies);
+            values.add(ramQualifies);
+            values.add(weightQualifies);
+            values.add(warrantyQualifies);
+            values.add(output);
+            qualifiers.put(laptop, values);
+        }
+
+        ObservableList<LaptopCell> rows = FXCollections.observableArrayList();
+        for (Map.Entry<Laptop, List<Boolean>> entry : qualifiers.entrySet()) {
+            rows.add(new LaptopCell(entry.getKey(), entry.getValue()));
+        }
+
+        truthTable.setItems(rows);
+        showExpressionTree(rows);
+    }
+
+    private void showExpressionTree(ObservableList<LaptopCell> rows) {
+        TreeItem<String> root = new TreeItem<>(
+            "Eligibility: B AND M AND L AND (NOT F OR W)");
+        root.setExpanded(true);
+
+        for (LaptopCell cell : rows) {
+            boolean warrantyRule =
+                !warrantyChk.isSelected() || cell.getWarrantyQualifies();
+            TreeItem<String> laptopNode = new TreeItem<>(
+                cell.getLaptop().name() + " - Output: "
+                    + Boolean.toString(cell.getOutput()));
+
+            TreeItem<String> andNode = new TreeItem<>("AND");
+            andNode.getChildren().add(new TreeItem<>(
+                "B - Price qualifies: "
+                    + Boolean.toString(cell.getPriceQualifies())));
+            andNode.getChildren().add(new TreeItem<>(
+                "M - RAM qualifies: "
+                    + Boolean.toString(cell.getRamQualifies())));
+            andNode.getChildren().add(new TreeItem<>(
+                "L - Weight qualifies: "
+                    + Boolean.toString(cell.getWeightQualifies())));
+
+            TreeItem<String> warrantyNode = new TreeItem<>(
+                "Warranty rule: " + Boolean.toString(warrantyRule));
+            warrantyNode.getChildren().add(new TreeItem<>(
+                "NOT F - Warranty not required: "
+                    + Boolean.toString(!warrantyChk.isSelected())));
+            warrantyNode.getChildren().add(new TreeItem<>(
+                "W - Laptop has warranty: "
+                    + Boolean.toString(cell.getWarrantyQualifies())));
+            andNode.getChildren().add(warrantyNode);
+            laptopNode.getChildren().add(andNode);
+            root.getChildren().add(laptopNode);
+        }
+
+        expresstionTreeview.setRoot(root);
+    }
+
+    private void populateAdjacencyTreeView() {
+        TreeItem<String> root = new TreeItem<>(
+            "Laptop Knowledge Graph - Adjacency List");
+        root.setExpanded(true);
+
+        for (Laptop laptop : laptops) {
+            TreeItem<String> laptopNode = new TreeItem<>(laptop.name());
+            laptopNode.getChildren().add(new TreeItem<>(
+                String.format(Locale.US, "HAS_PRICE -> Price: $%,.2f",
+                    laptop.price())));
+            laptopNode.getChildren().add(new TreeItem<>(
+                "HAS_RAM -> RAM: " + laptop.RAM() + " GB"));
+            laptopNode.getChildren().add(new TreeItem<>(
+                String.format(Locale.US, "HAS_WEIGHT -> Weight: %.2f kg",
+                    laptop.weight())));
+            laptopNode.getChildren().add(new TreeItem<>(
+                "HAS_WARRANTY -> Warranty: "
+                    + (laptop.hasWarranty() ? "Yes" : "No")));
+            root.getChildren().add(laptopNode);
+        }
+
+        adjacencyTreeview.setRoot(root);
     }
 
     /*

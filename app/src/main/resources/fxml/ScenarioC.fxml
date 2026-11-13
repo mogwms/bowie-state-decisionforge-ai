@@ -103,11 +103,12 @@
 
       <TableView fx:id="truthTable" layoutX="523.0" layoutY="249.0" prefHeight="171.0" prefWidth="374.0" style="-fx-border-color: darkblue;">
         <columns>
-          <TableColumn fx:id="BCol" prefWidth="75.0" text="B" />
-          <TableColumn fx:id="MCol" prefWidth="75.0" text="M" />
-          <TableColumn fx:id="LCol" prefWidth="75.0" text="L" />
-          <TableColumn fx:id="WCol" prefWidth="75.0" text="W" />
-          <TableColumn fx:id="OutputCol" prefWidth="75.0" text="Output" />
+          <TableColumn fx:id="LaptopCol" prefWidth="90.0" text="Laptop" />
+          <TableColumn fx:id="BCol" prefWidth="55.0" text="B" />
+          <TableColumn fx:id="MCol" prefWidth="55.0" text="M" />
+          <TableColumn fx:id="LCol" prefWidth="55.0" text="L" />
+          <TableColumn fx:id="WCol" prefWidth="55.0" text="W" />
+          <TableColumn fx:id="OutputCol" prefWidth="64.0" text="Output" />
         </columns>
       </TableView>
 
