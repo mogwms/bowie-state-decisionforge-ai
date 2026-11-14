@@ -55,9 +55,7 @@ Contributions are welcome. Follow these steps to submit changes:
 
 Distributed under the MIT License. See `LICENSE` file for more information.
 
-## Contact
-
-* Project Link: [https://github.com/mogwms/bowie-state-decisionforge-ai](https://github.com/mogwms/bowie-state-decisionforge-ai)  
+## Contributors
 
 * Jordan Clyne – [MegaVmvmf](https://github.com/MegaVmvmf)
 * Malcolm Williams – [mogwms](https://github.com/mogwms)
