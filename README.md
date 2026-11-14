@@ -36,7 +36,7 @@ table, an expression tree, a decision tree, and a knowledge graph, rather than r
    ./gradlew installDist
    ```
    Or run the project:
-   `` bash
+   ``` bash
    ./gradlew run
    ```
 4. Find the compiled project inside of **app/build/install/**, and run the **app.bat** file inside of **bin/**.
