@@ -57,7 +57,9 @@ Distributed under the MIT License. See `LICENSE` file for more information.
 
 ## Contact
 
-Project Link: [https://github.com/mogwms/bowie-state-decisionforge-ai](https://github.com/mogwms/bowie-state-decisionforge-ai)  
+* Project Link: [https://github.com/mogwms/bowie-state-decisionforge-ai](https://github.com/mogwms/bowie-state-decisionforge-ai)  
+
+* Jordan Clyne – [MegaVmvmf](https://github.com/MegaVmvmf)
 * Malcolm Williams – [mogwms](https://github.com/mogwms)
-* Leopole Tandjong Jr. - [StillTyping1](https://github.com/StillTyping1)
-* AlhajI Sulimani: [AlhajiS-1101](https://github.com/AlhajiS-1101)
+* Leopole Tandjong Jr. – [StillTyping1](https://github.com/StillTyping1)
+* AlhajI Sulimani – [AlhajiS-1101](https://github.com/AlhajiS-1101)
