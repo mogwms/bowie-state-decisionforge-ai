@@ -38,6 +38,12 @@ javafx {
     modules = [ 'javafx.controls', 'javafx.fxml']
 }
 
+jar {
+    manifest {
+        attributes 'Main-Class': 'bowie.state.decisionforge.ai.App'
+    }
+}
+
 application {
     // Define the main class for the application.
     mainClass = 'bowie.state.decisionforge.ai.App'
