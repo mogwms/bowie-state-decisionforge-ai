@@ -1,6 +1,8 @@
-# Bowie State University Discrete Structures Final Project - LaptopWise
+# LaptopWise: A Budget-Aware Laptop Selector
 
-**LaptopWise** is a budget-aware laptop comparison algorithm that compares a list of laptops, ranking them from best to worst based on what the user is looking for. LaptopWise calculates the best laptop based on its price and specifications, such as memory, physical weight/portability, and warranty. Decisions are also displayed visually through a truth table, decision tree, and adjacency list.
+**LaptopWise** is a budget-aware laptop comparison algorithm that compares a list of laptops, ranking them from best to worst based on what the user is looking for. 
+
+LaptopWise also calculates the best laptop based on its price and specifications, such as memory, physical weight/portability, and warranty. Decisions are also displayed visually through a truth table, decision tree, and adjacency list.
 
 ## Features
 
@@ -8,8 +10,7 @@
 
 * **Choose Ranking Priorities:** Allows the user to rank laptops based on what they are looking for the most, such as low prices, low weight, highest memory, and if they have warranties.
 
-* **Visual Integration:** Presents the result through propositional logic, a truth
-table, an expression tree, a decision tree, and a knowledge graph, rather than receiving only a black-box answer.
+* **Visual Integration:** Presents the result through propositional logic, a truth table, an expression tree, a decision tree, and a knowledge graph, rather than receiving only a black-box answer.
 
 
 ## Getting Started
@@ -39,7 +40,7 @@ table, an expression tree, a decision tree, and a knowledge graph, rather than r
    ``` bash
    ./gradlew run
    ```
-4. Find the compiled project inside of **app/build/install/**, and run the **app.bat** file inside of **bin/**.
+4. Find the compiled project inside of `app/build/install/`, and run the `app.bat` file inside the `bin/` folder.
 
 ## Contributing
 
